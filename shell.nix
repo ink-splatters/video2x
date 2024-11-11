@@ -1,6 +1,6 @@
 with import <nixpkgs> { };
 let
-  inherit (llvmPackages_18) stdenv libcxx;
+  inherit (llvmPackages_18) stdenv libcxx openmp;
 in
 mkShell.override { inherit stdenv; } {
   buildInputs = [
@@ -8,6 +8,7 @@ mkShell.override { inherit stdenv; } {
     vulkan-loader
     vulkan-tools
     libcxx
+    openmp
   ];
 
   nativeBuildInputs = [
